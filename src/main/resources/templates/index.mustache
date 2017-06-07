@@ -1,0 +1,22 @@
+<html>
+<body>
+<form name="" action="/search">
+	<input type="text" name="artist" placeholder="Artist"></input>
+	<input type="text" name="query" placeholder="lyric"></input>
+	<button type="submit">Search</button>
+</form>
+<button onclick="window.location='/add'">Add</button>
+<ul>
+{{#songs}}
+  <li>{{id}} - {{getSource.name}} - {{getSource.year}} 
+    {{#getHighlightFields}} - 
+      {{#lyrics.getFragments}}
+        {{#.}}{{{.}}}{{/.}}
+      {{/lyrics.getFragments}}
+    {{/getHighlightFields}}
+  </li>
+{{/songs}}
+</ul>
+
+</body>
+</html>
